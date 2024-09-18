@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./assets/logo.png";
+import "./App.css";
+import NavBar from "./layouts/NavBar";
+import Title from "./layouts/Title";
 
 function App() {
+  const menuItems = [
+    { label: "Home", href: "/", current: true },
+    { label: "Features", href: "/features", current: false },
+    { label: "Pricing", href: "/pricing", current: false },
+    { label: "Blog", href: "/blog", current: false },
+    { label: "Resources", href: "/resources", current: false },
+  ];
+
+  const handleSignIn = () => {
+    console.log("Sign in clicked!");
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <NavBar
+          logoSrc={logo}
+          brandName="Coca"
+          menuItems={menuItems}
+          signInLabel="Sign in"
+          onSignIn={handleSignIn}
+        />
       </header>
+      <body>
+        <Title></Title>
+      </body>
     </div>
   );
 }
