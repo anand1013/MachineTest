@@ -1,0 +1,226 @@
+{
+    "plans": [
+        {
+            "name": "Basic",
+            "price": "$10",
+            "backgroundColor": "#E0F2D4",
+            "textColor": "#38715B"
+        },
+        {
+            "name": "Business",
+            "price": "$20",
+            "backgroundColor": "#D4E8FA",
+            "textColor": "#3871A5"
+        },
+        {
+            "name": "Enterprise",
+            "price": "$40",
+            "backgroundColor": "#E6DBFF",
+            "textColor": "#7256AF"
+        }
+    ],
+    "price": [
+        {
+            "name": "Price",
+            "plans": [
+                {
+                    "name": "Basic",
+                    "background": "rgb(224 242 212 / 51%)",
+                    "price": 10
+                },
+                {
+                    "name": "Business",
+                    "background": "rgb(212 232 250 / 43%)",
+                    "price": 20
+                },
+                {
+                    "name": "Enterprise",
+                    "background": "rgb(230 219 255 / 54%)",
+                    "price": 30
+                }
+            ]
+        }
+    ],
+    "features": [
+        {
+            "name": "Unlimited Transactions",
+            "plans": [
+                {
+                    "name": "Basic",
+                    "background": "rgb(224 242 212 / 51%)",
+                    "included": true
+                },
+                {
+                    "name": "Business",
+                    "background": "rgb(212 232 250 / 43%)",
+                    "included": true
+                },
+                {
+                    "name": "Enterprise",
+                    "background": "rgb(230 219 255 / 54%)",
+                    "included": true
+                }
+            ]
+        },
+        {
+            "name": "Multi Outlet",
+            "plans": [
+                {
+                    "name": "Basic",
+                    "background": "rgb(224 242 212 / 51%)",
+                    "included": true
+                },
+                {
+                    "name": "Business",
+                    "background": "rgb(212 232 250 / 43%)",
+                    "included": false
+                },
+                {
+                    "name": "Enterprise",
+                    "background": "rgb(230 219 255 / 54%)",
+                    "included": true
+                }
+            ]
+        },
+        {
+            "name": "Report Featured",
+            "plans": [
+                {
+                    "name": "Basic",
+                    "background": "rgb(224 242 212 / 51%)",
+                    "included": true
+                },
+                {
+                    "name": "Business",
+                    "background": "rgb(212 232 250 / 43%)",
+                    "included": false
+                },
+                {
+                    "name": "Enterprise",
+                    "background": "rgb(230 219 255 / 54%)",
+                    "included": true
+                }
+            ]
+        },
+        {
+            "name": "Inventory Management",
+            "plans": [
+                {
+                    "name": "Basic",
+                    "background": "rgb(224 242 212 / 51%)",
+                    "included": true
+                },
+                {
+                    "name": "Business",
+                    "background": "rgb(212 232 250 / 43%)",
+                    "included": false
+                },
+                {
+                    "name": "Enterprise",
+                    "background": "rgb(230 219 255 / 54%)",
+                    "included": true
+                }
+            ]
+        },
+        {
+            "name": "Direct report & teamreview",
+            "plans": [
+                {
+                    "name": "Basic",
+                    "background": "rgb(224 242 212 / 51%)",
+                    "included": true
+                },
+                {
+                    "name": "Business",
+                    "background": "rgb(212 232 250 / 43%)",
+                    "included": false
+                },
+                {
+                    "name": "Enterprise",
+                    "background": "rgb(230 219 255 / 54%)",
+                    "included": true
+                }
+            ]
+        },
+        {
+            "name": "Employee Management System",
+            "plans": [
+                {
+                    "name": "Basic",
+                    "background": "rgb(224 242 212 / 51%)",
+                    "included": true
+                },
+                {
+                    "name": "Business",
+                    "background": "rgb(212 232 250 / 43%)",
+                    "included": false
+                },
+                {
+                    "name": "Enterprise",
+                    "background": "rgb(230 219 255 / 54%)",
+                    "included": true
+                }
+            ]
+        },
+        {
+            "name": "CRM And Promotion Features",
+            "plans": [
+                {
+                    "name": "Basic",
+                    "background": "rgb(224 242 212 / 51%)",
+                    "included": true
+                },
+                {
+                    "name": "Business",
+                    "background": "rgb(212 232 250 / 43%)",
+                    "included": false
+                },
+                {
+                    "name": "Enterprise",
+                    "background": "rgb(230 219 255 / 54%)",
+                    "included": true
+                }
+            ]
+        },
+        {
+            "name": "Third Party Application Integration",
+            "plans": [
+                {
+                    "name": "Basic",
+                    "background": "rgb(224 242 212 / 51%)",
+                    "included": true
+                },
+                {
+                    "name": "Business",
+                    "background": "rgb(212 232 250 / 43%)",
+                    "included": false
+                },
+                {
+                    "name": "Enterprise",
+                    "background": "rgb(230 219 255 / 54%)",
+                    "included": true
+                }
+            ]
+        },
+        {
+            "name": "Multi Outlet",
+            "plans": [
+                {
+                    "name": "Basic",
+                    "background": "rgb(224 242 212 / 51%)",
+                    "included": true
+                },
+                {
+                    "name": "Business",
+                    "background": "rgb(212 232 250 / 43%)",
+                    "included": false
+                },
+                {
+                    "name": "Enterprise",
+                    "background": "rgb(230 219 255 / 54%)",
+                    "included": true
+                }
+            ]
+        }
+    ]
+}
