@@ -7,6 +7,22 @@ import partner from "../assets/partner.png";
 
 import { Testimonial } from "../components/molecules/Testimonial";
 import RatingScore from "../components/molecules/RatingScore";
+import BarChart from "../components/molecules/BarChart";
+
+const data = [
+  { month: "jan", earnings: 10000 },
+  { month: "feb", earnings: 12500 },
+  { month: "mar", earnings: 13250 },
+  { month: "apr", earnings: 11000 },
+  { month: "may", earnings: 13000 },
+  { month: "jun", earnings: 9000 },
+  { month: "jul", earnings: 8000 },
+  { month: "aug", earnings: 11000 },
+  { month: "sep", earnings: 13000 },
+  { month: "oct", earnings: 16500 },
+  { month: "nov", earnings: 14250 },
+  { month: "dec", earnings: 15000 },
+];
 
 // Main Hero Component
 const Title = () => (
@@ -34,18 +50,37 @@ const Title = () => (
 
       {/* Testimonials and Reviews Section */}
       <section className="mr-auto place-self-center lg:col-span-5">
-        <Testimonial
-          text="Deliver a better customer experience and increase their operational efficiency."
-          author="Jane Doe"
-          position="CEO at Company"
-          image={rating}
-          fontSize="text-lg"
-          color="text-red-500"
-          background="#FFF5EE"
+        <BarChart
+          data={data}
+          xAxisLabels={[
+            "jan",
+            "feb",
+            "mar",
+            "apr",
+            "may",
+            "jun",
+            "jul",
+            "aug",
+            "sep",
+            "oct",
+            "nov",
+            "dec",
+          ]}
+          xKey="month"
+          yKey="earnings"
+          barColor="#8FBFFF"
+          barWidth={10}
+          animationConfig={{
+            duration: 1500,
+            onLoad: { duration: 800 },
+          }}
+          axisStyles={{
+            xAxis: { tickLabels: { fontSize: 12, padding: 5 } },
+            yAxis: { tickLabels: { fontSize: 12, padding: 5 } },
+          }}
         />
 
-        <div className="flex flex-row space-x-4">
-          
+        <section className="flex flex-row space-x-4">
           <div className="basis-1/2 rounded-3xl">
             <section className="bg-gray-50 mb-8">
               <div
@@ -94,7 +129,7 @@ const Title = () => (
               </div>
             </section>
           </div>
-        </div>
+        </section>
 
         <Testimonial
           text="Deliver a better customer experience and increase their operational efficiency."
