@@ -3,6 +3,7 @@ import "./App.css";
 import NavBar from "./layouts/NavBar";
 import Title from "./layouts/Title";
 import Partners from "./layouts/Partners";
+import Feature from "./layouts/Feature";
 
 function App() {
   const menuItems = [
@@ -31,6 +32,7 @@ function App() {
       <body>
         <Title></Title>
         <Partners></Partners>
+        <Feature></Feature>
       </body>
     </div>
   );
