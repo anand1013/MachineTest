@@ -16,7 +16,12 @@ export const Testimonial = ({
     >
       <figure className="max-w-screen-md mx-auto">
         <blockquote>
-          <p className={`font-medium ${fontSize} ${color} text-left`}>{text}</p>
+          <p
+            className={`font-medium ${fontSize} text-left`}
+            style={{ color: color }}
+          >
+            {text}
+          </p>
         </blockquote>
         <figcaption className="flex r mt-6 space-x-3 text-left">
           <img
@@ -25,8 +30,8 @@ export const Testimonial = ({
             alt="testimonial icon"
           />
           <div>
-            <div className={`pr-3 font-bold text-gray-900`}>{author}</div>
-            <div className="pl-px text-sm font-medium text-gray-400">
+            <div className={`pr-3 font-bold`}  style={{ color: color }}>{author}</div>
+            <div className="pl-px text-sm font-medium"  style={{ color: color }}>
               {position}
             </div>
           </div>
