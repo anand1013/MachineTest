@@ -1,4 +1,8 @@
 import React from "react";
+import { useState, useEffect } from "react";
+
+import { googleLogout, useGoogleLogin } from "@react-oauth/google";
+import axios from "axios";
 
 // Logo Component
 const Logo = ({ logoSrc, brandName }) => (
@@ -29,7 +33,6 @@ const MenuItems = ({ items }) => (
     ))}
   </ul>
 );
-
 
 // NavButton Component
 const NavButton = ({ label, onClick }) => (
@@ -85,37 +88,97 @@ const HamburgerToggle = ({ isOpen, onToggle }) => (
   </button>
 );
 
-const NavBar = ({ logoSrc, brandName, menuItems, signInLabel, onSignIn }) => {
-  const [isMenuOpen, setMenuOpen] = React.useState(false);
+const NavBar = ({ logoSrc, brandName, menuItems, onSignIn }) => {
+  const [isMenuOpen, setMenuOpen] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+  const [user, setUser] = useState(null);
+  const [profile, setProfile] = useState(null);
 
-  const handleToggleMenu = () => {
-    setMenuOpen(!isMenuOpen);
+  const toggleMenu = () => setMenuOpen(!isMenuOpen);
+
+  const handleGoogleLogin = useGoogleLogin({
+    onSuccess: (response) => {
+      setUser(response);
+      setShowAlert(true);
+    },
+    onError: (error) => console.error("Login Failed:", error),
+  });
+
+  const handleLogOut = () => {
+    googleLogout();
+    setProfile(null);
+    setUser(null);
   };
 
+  useEffect(() => {
+    if (user) {
+      axios
+        .get(
+          `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
+          {
+            headers: {
+              Authorization: `Bearer ${user.access_token}`,
+              Accept: "application/json",
+            },
+          }
+        )
+        .then((response) => setProfile(response.data))
+        .catch((error) => console.error(error));
+    }
+  }, [user]);
+
+  const CustomAlert = ({ onClose }) => (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-50">
+      <div className="bg-white p-8 rounded-lg shadow-xl text-center max-w-md mx-auto space-y-6">
+        <h1 className="text-2xl font-bold text-gray-800">
+          Hi, <span className="text-orange-500">{profile?.name}</span> 😁<br />
+          Welcome to{" "}
+          <span className="font-ebold text-orange-600">Coca</span>
+        </h1>
+        <p className="mt-4 text-gray-700 text-lg">
+          All the features you need in one app for{" "}
+          <span className="font-semibold">any kind of your business</span> 🚀.
+        </p>
+        <p className="mt-2 text-gray-600">
+          Manage your restaurant business with{" "}
+          <span className="font-semibold text-orange-500">advanced</span> tools
+          and services.
+        </p>
+        <button
+          className="text-orange-500 bg-white font-medium rounded-full text-base px-6 py-2 border-2 border-orange-500 hover:bg-orange-500 hover:text-white transition duration-300"
+          onClick={onClose}
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  );
+
   return (
-    <section className="w-full">
-      <nav className="bg-white border-gray-200 py-2.5">
+    <div>
+      {showAlert && <CustomAlert onClose={() => setShowAlert(false)} />}
+      <nav className="bg-white border-gray-200 py-2.5 w-full">
         <div className="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
           <Logo logoSrc={logoSrc} brandName={brandName} />
 
-          <section
+          <div
             className={`items-center justify-between ${
               isMenuOpen ? "block" : "hidden"
             } w-full lg:flex lg:w-auto lg:order-1`}
-            id="mobile-menu-2"
           >
             <MenuItems items={menuItems} />
-          </section>
+          </div>
 
-          <section className="flex items-center lg:order-2">
-            <NavButton label={signInLabel} onClick={onSignIn} />
-
-            <HamburgerToggle isOpen={isMenuOpen} onToggle={handleToggleMenu} />
-          </section>
+          <div className="flex items-center lg:order-2">
+            <NavButton
+              label={profile ? "Sign Out" : "Sign In"}
+              onClick={profile ? handleLogOut : handleGoogleLogin}
+            />
+            <HamburgerToggle isOpen={isMenuOpen} onToggle={toggleMenu} />
+          </div>
         </div>
       </nav>
-    </section>
+    </div>
   );
 };
-
 export default NavBar;
