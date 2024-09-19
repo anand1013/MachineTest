@@ -28,7 +28,6 @@ const Home = () => {
           logoSrc={logo}
           brandName="Coca"
           menuItems={menuItems}
-          signInLabel="Sign in"
           onSignIn={handleSignIn}
         />
       </header>
