@@ -1,5 +1,5 @@
-import React from "react";
-import featureframe from "../assets/feature-frame.png"; // Replace with actual path
+import React, { useEffect, useState } from "react";
+import { fetchDataFromDatabase } from "../services/firebaseService";
 
 // FeatureImage Component
 const FeatureImage = ({ imgSrc, altText }) => (
@@ -74,34 +74,20 @@ const FeatureSection = ({
 
 // Main Feature component
 const Feature = () => {
-  const featuresData = [
-    {
-      imgSrc: featureframe,
-      title: "Dashboard to monitor your business sales from anywhere",
-      description:
-        "Dashboard provides in-depth insight into the performance menu items. You can see popular and unsold menus, helping you to monitor your restaurant business sales.",
-      demoLink: "#",
-      infoLink: "#",
-    },
-    {
-      imgSrc: featureframe,
-      title: "Easier and better Desk Management",
-      description:
-        "Desk management becomes smoother with interactive table visualizations. You can manage orders, allocate tables and maximize restaurant capacity.",
-      demoLink: "#",
-      infoLink: "#",
-      reverse: true,
-    },
-    {
-      imgSrc: featureframe,
-      title: "More efficient customer recording and monitoring",
-      description:
-        "Monitor order records to tailor orders to customer preferences, such as options to add or remove ingredients for a more personalized experience and better service.",
-      demoLink: "#",
-      infoLink: "#",
-    },
-    // Add more feature objects as needed
-  ];
+  const [data, setData] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      const fetchedData = await fetchDataFromDatabase("feature");
+      setData(fetchedData);
+    } catch (err) {
+      console.log("Error fetching data:", err);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <div>
@@ -112,7 +98,7 @@ const Feature = () => {
             for your business needs
           </h1>
 
-          {featuresData.map((feature, index) => (
+          {data.map((feature, index) => (
             <FeatureSection
               key={index}
               imgSrc={feature.imgSrc}
