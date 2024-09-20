@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import FeatureCard from "../components/molecules/FeatureCard";
 import { Testimonial } from "../components/molecules/Testimonial";
-import jcorun from "../assets/jco-run-logo.png";
+import { getDatabase, ref, onValue } from "firebase/database";
+import cong from "../configuration";
 
 // TestimonialList Component
 const TestimonialList = ({ testimonials }) => {
@@ -57,39 +58,28 @@ const AdvantageTestimonials = () => {
     },
   ];
 
-  const testimonials = [
-    {
-      text: "“We are very impressed with the use of this POS application. Management of orders and payments becomes faster and more accurate so as to increase our operational efficiency.”",
-      author: "Stevano William",
-      position: "CEO at Company",
-      image: jcorun,
-      color: "#38715B",
-      background: "#F1FAEB",
-    },
-    {
-      text: "“The use of this application has given our company efficiency and accuracy in managing orders and payments.”",
-      author: "Jennifer Lopes",
-      position: "Business Owner at KFC Indonesia",
-      image: jcorun,
-      color: "#3871A5",
-      background: "#ECF6FF",
-    },
-    {
-      text: "“We are pleased with the flexibility of this company's POS application. We can easily adapt our menu, prices, and promotions according to market needs.”",
-      author: "Emanuel Rodrigo",
-      position: "CEO at Company",
-      image: jcorun,
-      color: "#DC8558",
-      background: "#FFF5EE",
-    },
-  ];
+  const [data, setData] = useState([]);
+  const database = getDatabase(cong);
+  const collectionRef = ref(database, "testimonial");
+
+  useEffect(() => {
+    const fetchData = () => {
+      onValue(collectionRef, (snapshot) => {
+        const dataItem = snapshot.val();
+        if (dataItem) {
+          const displayItem = Object.values(dataItem);
+          setData(displayItem);
+        }
+      });
+    };
+    fetchData();
+  }, []);
 
   return (
     <section className="bg-white">
       <div className="items-center max-w-screen-xl px-4 py-8 mx-auto lg:grid lg:grid-cols-4 lg:gap-16 xl:gap-24 lg:py-24 lg:px-6">
         {/* Features Section */}
         <div className="col-span-2 space-y-8 md:grid md:grid-cols-2 md:gap-12 md:space-y-0">
-
           {features.map((feature, index) => (
             <FeatureCard
               key={index}
@@ -101,7 +91,7 @@ const AdvantageTestimonials = () => {
         </div>
 
         {/* Testimonials Section */}
-        <TestimonialList testimonials={testimonials} />
+        <TestimonialList testimonials={data} />
       </div>
     </section>
   );

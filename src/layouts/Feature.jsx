@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { fetchDataFromDatabase } from "../services/firebaseService";
+import { getDatabase, ref, onValue } from "firebase/database";
+import cong from "../configuration";
 
 // FeatureImage Component
 const FeatureImage = ({ imgSrc, altText }) => (
@@ -75,17 +76,19 @@ const FeatureSection = ({
 // Main Feature component
 const Feature = () => {
   const [data, setData] = useState([]);
-
-  const fetchData = async () => {
-    try {
-      const fetchedData = await fetchDataFromDatabase("feature");
-      setData(fetchedData);
-    } catch (err) {
-      console.log("Error fetching data:", err);
-    }
-  };
+  const database = getDatabase(cong);
+  const collectionRef = ref(database, "feature");
 
   useEffect(() => {
+    const fetchData = () => {
+      onValue(collectionRef, (snapshot) => {
+        const dataItem = snapshot.val();
+        if (dataItem) {
+          const displayItem = Object.values(dataItem);
+          setData(displayItem);
+        }
+      });
+    };
     fetchData();
   }, []);
 

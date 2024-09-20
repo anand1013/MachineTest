@@ -8,24 +8,25 @@ import partner from "../assets/partner.png";
 import { Testimonial } from "../components/molecules/Testimonial";
 import RatingScore from "../components/molecules/RatingScore";
 import BarChart from "../components/molecules/BarChart";
-import { fetchDataFromDatabase } from "../services/firebaseService";
+import { getDatabase, ref, onValue } from "firebase/database";
+import cong from "../configuration";
 
 // Main Hero Component
 const Title = () => {
   const [data, setData] = useState([]);
-
-  const fetchData = async () => {
-    try {
-      const fetchedData = await fetchDataFromDatabase("statitics");
-      console.log(fetchedData);
-
-      setData(fetchedData);
-    } catch (err) {
-      console.log("Error fetching data:", err);
-    }
-  };
+  const database = getDatabase(cong);
+  const collectionRef = ref(database, "statitics");
 
   useEffect(() => {
+    const fetchData = () => {
+      onValue(collectionRef, (snapshot) => {
+        const dataItem = snapshot.val();
+        if (dataItem) {
+          const displayItem = Object.values(dataItem);
+          setData(displayItem);
+        }
+      });
+    };
     fetchData();
   }, []);
 
