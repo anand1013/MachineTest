@@ -5,7 +5,7 @@ import pricingData from "../store/pricingData.json";
 const PlanHeader = ({ plan }) => (
   <th
     scope="col"
-    className="font-medium h-16 text-lg sm:text-xl md:text-2xl"
+    className="font-medium h-16 sm:text-sm md:text-2xl"
     style={{
       background: plan.backgroundColor,
       color: plan.textColor,
@@ -27,23 +27,16 @@ const PlanCell = ({ content, isPrice }) => (
   >
     {isPrice ? (
       <h1 className="font-semibold">
-      <span className="text-sm md:text-4xl font-bold">${content.price}</span>
+        <span className="text-sm md:text-4xl font-bold">${content.price}</span>
         <span className="text-sm text-xs">/Month</span>
       </h1>
     ) : content.included ? (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-        aria-label={`Included in ${content.name} plan`}
-        className="w-5 h-5 mx-auto dark:text-violet-600"
-      >
-        <path
-          fillRule="evenodd"
-          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-          clipRule="evenodd"
-        ></path>
-      </svg>
+      <div className="flex justify-center items-center">
+        <img
+          alt="True"
+          src="https://firebasestorage.googleapis.com/v0/b/coco-e485d.appspot.com/o/check-circle-alt%20(1).png?alt=media&token=f590eb38-0b82-4d2b-8d28-0ff5256c43fe"
+        />
+      </div>
     ) : (
       <span className="font-extrabold text-gray-400 text-2xl">-</span>
     )}
@@ -66,7 +59,9 @@ const PriceRow = ({ plans }) => (
 const FeatureRow = ({ feature, plans }) => (
   <tr>
     <th scope="row" className="text-left">
-      <h3 className="py-3 font-medium text-gray-600">{feature}</h3>
+      <h3 className="py-3 font-medium text-sm md:text-base text-gray-600">
+        {feature}
+      </h3>
     </th>
     {plans.map((plan, index) => (
       <PlanCell key={index} content={plan} isPrice={false} />
@@ -81,7 +76,7 @@ const Pricing = () => {
   return (
     <section>
       <div className="container p-6 overflow-x-auto max-w-screen-xl px-4 pb-8 mx-auto lg:pb-16 text-center">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl mb-11 text-start max-w-3xl font-semibold">
+        <h1 className=" sm:text-xl md:text-3xl mb-11 text-start max-w-3xl font-semibold">
           Packages for your business
         </h1>
 
