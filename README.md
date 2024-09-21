@@ -24,4 +24,4 @@
 
 ## Hosted :
 
-# https://66eee9517df9d400088a918b--gentle-sherbet-0407d3.netlify.app/
+# https://deploy-preview-10--gentle-sherbet-0407d3.netlify.app/
