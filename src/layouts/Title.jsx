@@ -103,7 +103,7 @@ const Title = () => {
             position="CEO at Company"
             image={PARTNER_ICON}
             fontSize="text-sm sm:text-lg"
-            color="text-red-500"
+            color="#DC8558"
             background="#FFF5EE"
           />
         </section>

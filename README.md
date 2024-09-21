@@ -10,7 +10,7 @@
 
 # Reusable Components
 
-To-Do:
+## To-Do:
 
 # Footer Section: Pending implementation.
 
@@ -21,3 +21,7 @@ To-Do:
 # npm install
 
 # npm run start
+
+## Hosted :
+
+# https://66eee9517df9d400088a918b--gentle-sherbet-0407d3.netlify.app/

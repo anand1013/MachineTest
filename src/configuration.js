@@ -3,13 +3,13 @@ import { initializeApp } from "firebase/app";
 
 // Your Firebase config here
 const firebaseConfig = {
-  apiKey: "AIzaSyC_7tiEUOUjt6KRwbJdcWDpPQJyP7KOOFM",
-  authDomain: "coco-e485d.firebaseapp.com",
-  databaseURL: "https://coco-e485d-default-rtdb.firebaseio.com",
-  projectId: "coco-e485d",
-  storageBucket: "coco-e485d.appspot.com",
-  messagingSenderId: "907452866792",
-  appId: "1:907452866792:web:0985307376730c2baf695d",
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
 };
 
 // Initialize Firebase
