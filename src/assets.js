@@ -1,6 +1,7 @@
 // constants.js
-export const STAR_IMAGE_URL =
-  "https://firebasestorage.googleapis.com/v0/b/coco-e485d.appspot.com/o/star.png?alt=media&token=5b2eedfd-7eb0-46db-aec6-0f8371b85d5f";
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+export const STAR_IMAGE_URL = `${BASE_URL}star.png?alt=media&token=5b2eedfd-7eb0-46db-aec6-0f8371b85d5f`;
 
 export const HAMBURGER_ICON = (
   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
@@ -22,18 +23,9 @@ export const CLOSE_ICON = (
   </svg>
 );
 
-// assets.js
-export const CHECK_ICON_SRC =
-  "https://firebasestorage.googleapis.com/v0/b/coco-e485d.appspot.com/o/check-circle-alt%20(1).png?alt=media&token=f590eb38-0b82-4d2b-8d28-0ff5256c43fe";
-// assets.js
-export const ARROW_ICON =
-  "https://firebasestorage.googleapis.com/v0/b/coco-e485d.appspot.com/o/arrow.png?alt=media&token=33afcc05-90be-44ec-83f4-25d3e6c6e3a7";
-export const BANNER_IMAGE =
-  "https://firebasestorage.googleapis.com/v0/b/coco-e485d.appspot.com/o/banner.png?alt=media&token=63381e42-a155-40bd-8eaf-c2787841f466";
-export const RATING_ICON =
-  "https://firebasestorage.googleapis.com/v0/b/coco-e485d.appspot.com/o/rating.png?alt=media&token=35f38591-3576-469b-b65f-a17d5d20d73d";
-export const PARTNER_ICON =
-  "https://firebasestorage.googleapis.com/v0/b/coco-e485d.appspot.com/o/partner.png?alt=media&token=11b348e1-19ef-4b85-a2e0-6b9c454ebb9d";
-// assets.js
-export const LOGO_SRC =
-  "https://firebasestorage.googleapis.com/v0/b/coco-e485d.appspot.com/o/logo.png?alt=media&token=7b69b078-e615-4cd1-a0e1-3397d302ceed";
+export const CHECK_ICON_SRC = `${BASE_URL}check-circle-alt%20(1).png?alt=media&token=f590eb38-0b82-4d2b-8d28-0ff5256c43fe`;
+export const ARROW_ICON = `${BASE_URL}arrow.png?alt=media&token=33afcc05-90be-44ec-83f4-25d3e6c6e3a7`;
+export const BANNER_IMAGE = `${BASE_URL}banner.png?alt=media&token=63381e42-a155-40bd-8eaf-c2787841f466`;
+export const RATING_ICON = `${BASE_URL}rating.png?alt=media&token=35f38591-3576-469b-b65f-a17d5d20d73d`;
+export const PARTNER_ICON = `${BASE_URL}partner.png?alt=media&token=11b348e1-19ef-4b85-a2e0-6b9c454ebb9d`;
+export const LOGO_SRC = `${BASE_URL}logo.png?alt=media&token=7b69b078-e615-4cd1-a0e1-3397d302ceed`;
