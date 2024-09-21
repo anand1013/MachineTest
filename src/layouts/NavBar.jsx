@@ -1,8 +1,7 @@
-import React from "react";
-import { useState, useEffect } from "react";
-
+import React, { useState, useEffect } from "react";
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
+import { LOGO_SRC, HAMBURGER_ICON, CLOSE_ICON } from "../assets"; // 
 
 // Logo Component
 const Logo = ({ logoSrc, brandName }) => (
@@ -16,7 +15,7 @@ const Logo = ({ logoSrc, brandName }) => (
 
 // MenuItems Component
 const MenuItems = ({ items }) => (
-  <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 ">
+  <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8">
     {items.map((item, index) => (
       <li key={index} className="h-12">
         <a
@@ -57,34 +56,8 @@ const HamburgerToggle = ({ isOpen, onToggle }) => (
     onClick={onToggle}
   >
     <span className="sr-only">Open main menu</span>
-    {/* Hamburger icon */}
-    {!isOpen ? (
-      <svg
-        className="w-6 h-6"
-        fill="currentColor"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          fillRule="evenodd"
-          d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-          clipRule="evenodd"
-        />
-      </svg>
-    ) : (
-      <svg
-        className="w-6 h-6"
-        fill="currentColor"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          fillRule="evenodd"
-          d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-          clipRule="evenodd"
-        />
-      </svg>
-    )}
+    {/* Render Hamburger or Close icon based on state */}
+    {!isOpen ? HAMBURGER_ICON : CLOSE_ICON}
   </button>
 );
 
@@ -125,7 +98,8 @@ const NavBar = ({ logoSrc, brandName, menuItems, onSignIn }) => {
         .then((response) => setProfile(response.data))
         .catch((error) => console.error(error));
     }
-  }, [user]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const CustomAlert = ({ onClose }) => (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-50">
@@ -159,7 +133,7 @@ const NavBar = ({ logoSrc, brandName, menuItems, onSignIn }) => {
       {showAlert && <CustomAlert onClose={() => setShowAlert(false)} />}
       <nav className="bg-white border-gray-200 py-2.5 w-full">
         <div className="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
-          <Logo logoSrc={logoSrc} brandName={brandName} />
+          <Logo logoSrc={LOGO_SRC} brandName={brandName} />
 
           <div
             className={`items-center justify-between ${
@@ -181,4 +155,5 @@ const NavBar = ({ logoSrc, brandName, menuItems, onSignIn }) => {
     </div>
   );
 };
+
 export default NavBar;

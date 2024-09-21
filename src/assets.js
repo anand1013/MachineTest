@@ -2,7 +2,7 @@
 export const STAR_IMAGE_URL =
   "https://firebasestorage.googleapis.com/v0/b/coco-e485d.appspot.com/o/star.png?alt=media&token=5b2eedfd-7eb0-46db-aec6-0f8371b85d5f";
 
-export const HamburgerIcon = () => (
+export const HAMBURGER_ICON = (
   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
     <path
       fillRule="evenodd"
@@ -12,7 +12,7 @@ export const HamburgerIcon = () => (
   </svg>
 );
 
-export const CloseIcon = () => (
+export const CLOSE_ICON = (
   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
     <path
       fillRule="evenodd"

@@ -3,18 +3,17 @@ import NavBar from "../layouts/NavBar";
 import Title from "../layouts/Title";
 import Partners from "../layouts/Partners";
 import Feature from "../layouts/Feature";
-import {LOGO_SRC} from "../assets.js"
-
+import { LOGO_SRC } from "../assets.js";
 import Pricing from "../layouts/Pricing";
 import AdvantageTestimonials from "../layouts/AdvantageTestimonials";
 
 const Home = () => {
   const menuItems = [
-    { label: "Home", href: "/", current: true },
-    { label: "Features", href: "/features", current: false },
-    { label: "Pricing", href: "/pricing", current: false },
-    { label: "Blog", href: "/blog", current: false },
-    { label: "Resources", href: "/resources", current: false },
+    { label: "Home", current: true },
+    { label: "Features", current: false },
+    { label: "Pricing", current: false },
+    { label: "Blog", current: false },
+    { label: "Resources", current: false },
   ];
 
   const handleSignIn = () => {
@@ -31,13 +30,13 @@ const Home = () => {
           onSignIn={handleSignIn}
         />
       </header>
-      <body>
-        <Title></Title>
-        <Partners></Partners>
-        <Feature></Feature>
-        <Pricing></Pricing>
-        <AdvantageTestimonials></AdvantageTestimonials>
-      </body>
+      <main>
+        <Title />
+        <Partners />
+        <Feature />
+        <Pricing />
+        <AdvantageTestimonials />
+      </main>
     </div>
   );
 };

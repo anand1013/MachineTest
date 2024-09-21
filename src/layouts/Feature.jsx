@@ -18,7 +18,6 @@ const FeatureText = ({ title, description, demoLink, infoLink }) => (
       <h2 className="mb-4 text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight text-gray-900">
         {title}
       </h2>
-
       <p className="mb-8 lg:text-xl">{description}</p>
     </div>
     <div>
@@ -39,36 +38,17 @@ const FeatureText = ({ title, description, demoLink, infoLink }) => (
 );
 
 // FeatureSection Component
-const FeatureSection = ({
-  imgSrc,
-  title,
-  description,
-  demoLink,
-  infoLink,
-  reverse = false,
-}) => (
+const FeatureSection = ({ imgSrc, title, description, demoLink, infoLink, reverse }) => (
   <div className="gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
     {reverse ? (
       <>
-        {/* Render Text First when reverse is true */}
-        <FeatureText
-          title={title}
-          description={description}
-          demoLink={demoLink}
-          infoLink={infoLink}
-        />
+        <FeatureText title={title} description={description} demoLink={demoLink} infoLink={infoLink} />
         <FeatureImage imgSrc={imgSrc} altText="feature" />
       </>
     ) : (
       <>
-        {/* Render Image First when reverse is false */}
         <FeatureImage imgSrc={imgSrc} altText="feature" />
-        <FeatureText
-          title={title}
-          description={description}
-          demoLink={demoLink}
-          infoLink={infoLink}
-        />
+        <FeatureText title={title} description={description} demoLink={demoLink} infoLink={infoLink} />
       </>
     )}
   </div>
@@ -76,17 +56,16 @@ const FeatureSection = ({
 
 // Main Feature component
 const Feature = () => {
-  const [data, setData] = useState([]);
+  const [features, setFeatures] = useState([]);
   const database = getDatabase(cong);
-  const collectionRef = ref(database, "feature");
 
   useEffect(() => {
     const fetchData = () => {
+      const collectionRef = ref(database, "feature");
       onValue(collectionRef, (snapshot) => {
-        const dataItem = snapshot.val();
-        if (dataItem) {
-          const displayItem = Object.values(dataItem);
-          setData(displayItem);
+        const data = snapshot.val();
+        if (data) {
+          setFeatures(Object.values(data));
         }
       });
     };
@@ -95,28 +74,26 @@ const Feature = () => {
   }, []);
 
   return (
-    <div>
-      <section className="bg-gray-50">
-        <div className="max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-20 lg:py-14 lg:px-6">
-          <h1 className="text-start max-w-3xl mb-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold">
-            Complementary features <br />
-            for your business needs
-          </h1>
+    <section className="bg-gray-50">
+      <div className="max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-20 lg:py-14 lg:px-6">
+        <h1 className="text-start max-w-3xl mb-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold">
+          Complementary features <br />
+          for your business needs
+        </h1>
 
-          {data.map((feature, index) => (
-            <FeatureSection
-              key={index}
-              imgSrc={feature.imgSrc}
-              title={feature.title}
-              description={feature.description}
-              demoLink={feature.demoLink}
-              infoLink={feature.infoLink}
-              reverse={feature.reverse}
-            />
-          ))}
-        </div>
-      </section>
-    </div>
+        {features.map(({ imgSrc, title, description, demoLink, infoLink, reverse }, idx) => (
+          <FeatureSection
+            key={idx}
+            imgSrc={imgSrc}
+            title={title}
+            description={description}
+            demoLink={demoLink}
+            infoLink={infoLink}
+            reverse={reverse}
+          />
+        ))}
+      </div>
+    </section>
   );
 };
 

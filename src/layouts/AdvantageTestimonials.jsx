@@ -5,53 +5,40 @@ import { getDatabase, ref, onValue } from "firebase/database";
 import cong from "../configuration";
 
 // TestimonialList Component
-const TestimonialList = ({ testimonials }) => {
-  return (
-    <div className="mt-12 col-span-2 mb-8 ">
-      {testimonials.map((testimonial, index) => (
-        <Testimonial
-          key={index}
-          text={testimonial.text}
-          author={testimonial.author}
-          position={testimonial.position}
-          image={testimonial.image}
-          fontSize="text-lg"
-          color={testimonial.color}
-          background={testimonial.background}
-        />
-      ))}
-    </div>
-  );
-};
+const TestimonialList = ({ testimonials }) => (
+  <div className="mt-12 col-span-2 mb-8">
+    {testimonials.map(({ text, author, position, image, color, background }, idx) => (
+      <Testimonial
+        key={idx}
+        text={text}
+        author={author}
+        position={position}
+        image={image}
+        fontSize="text-lg"
+        color={color}
+        background={background}
+      />
+    ))}
+  </div>
+);
 
 const AdvantageTestimonials = () => {
   const [testimonial, setTestimonial] = useState([]);
   const [card, setCard] = useState([]);
   const database = getDatabase(cong);
-  const testimonialCollectionRef = ref(database, "testimonial");
-  const cardCollectionRef = ref(database, "featurecard");
 
   useEffect(() => {
-    const fetchData = () => {
-      onValue(testimonialCollectionRef, (snapshot) => {
-        const dataItem = snapshot.val();
-        if (dataItem) {
-          const displayItem = Object.values(dataItem);
-          setTestimonial(displayItem);
-        }
-      });
-
-      onValue(cardCollectionRef, (snapshot) => {
-        const dataItem = snapshot.val();
-        if (dataItem) {
-          const displayItem = Object.values(dataItem);
-          setCard(displayItem);
-        }
+    const fetchData = (refPath, setState) => {
+      const collectionRef = ref(database, refPath);
+      onValue(collectionRef, (snapshot) => {
+        const data = snapshot.val();
+        if (data) setState(Object.values(data));
       });
     };
-    fetchData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+
+    fetchData("testimonial", setTestimonial);
+    fetchData("featurecard", setCard);
+  }, [database]);
 
   return (
     <section className="bg-white">
@@ -64,20 +51,14 @@ const AdvantageTestimonials = () => {
               Hand
             </h1>
             <p className="mb-8 lg:text-xl font-medium text-gray-500">
-              Using our app in business, especially in the restaurant industry,{" "}
+              Using our app in business, especially in the restaurant industry,
               <br />
               has many advantages. Here are some of them:
             </p>
           </div>
-
           <div className="col-span-2 space-y-8 md:grid md:grid-cols-2 md:gap-12 md:space-y-0">
-            {card.map((feature, index) => (
-              <FeatureCard
-                key={index}
-                icon={feature.icon}
-                title={feature.title}
-                description={feature.description}
-              />
+            {card.map(({ icon, title, description }, idx) => (
+              <FeatureCard key={idx} icon={icon} title={title} description={description} />
             ))}
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import pricingData from "../store/pricingData.json";
+import { CHECK_ICON_SRC } from "../assets";
 
 // Reusable Plan Header Component
 const PlanHeader = ({ plan }) => (
@@ -20,22 +21,17 @@ const PlanHeader = ({ plan }) => (
 // Reusable Plan Cell Component for both price and features
 const PlanCell = ({ content, isPrice }) => (
   <td
-    style={{
-      backgroundColor: content.background,
-      borderRight: "10px solid white",
-    }}
+    className="border-r-4 border-white"
+    style={{ backgroundColor: content.background }}
   >
     {isPrice ? (
       <h1 className="font-semibold">
         <span className="text-sm md:text-4xl font-bold">${content.price}</span>
-        <span className="text-sm text-xs">/Month</span>
+        <span className="text-xs">/Month</span>
       </h1>
     ) : content.included ? (
       <div className="flex justify-center items-center">
-        <img
-          alt="True"
-          src="https://firebasestorage.googleapis.com/v0/b/coco-e485d.appspot.com/o/check-circle-alt%20(1).png?alt=media&token=f590eb38-0b82-4d2b-8d28-0ff5256c43fe"
-        />
+        <img alt="True" src={CHECK_ICON_SRC} />
       </div>
     ) : (
       <span className="font-extrabold text-gray-400 text-2xl">-</span>
@@ -76,7 +72,7 @@ const Pricing = () => {
   return (
     <section>
       <div className="container p-6 overflow-x-auto max-w-screen-xl px-4 pb-8 mx-auto lg:pb-16 text-center">
-        <h1 className=" sm:text-xl md:text-3xl mb-11 text-start max-w-3xl font-semibold">
+        <h1 className="sm:text-xl md:text-3xl mb-11 text-start max-w-3xl font-semibold">
           Packages for your business
         </h1>
 
