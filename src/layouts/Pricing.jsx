@@ -5,7 +5,7 @@ import pricingData from "../store/pricingData.json";
 const PlanHeader = ({ plan }) => (
   <th
     scope="col"
-    className="font-medium h-16 text-2xl"
+    className="font-medium h-16 text-lg sm:text-xl md:text-2xl"
     style={{
       background: plan.backgroundColor,
       color: plan.textColor,
@@ -26,9 +26,9 @@ const PlanCell = ({ content, isPrice }) => (
     }}
   >
     {isPrice ? (
-      <h1 className="font-semibold text-xl">
-        <span className="text-4xl font-bold">${content.price}</span>
-        <span className="text-sm">/Month</span>
+      <h1 className="font-semibold">
+      <span className="text-sm md:text-4xl font-bold">${content.price}</span>
+        <span className="text-sm text-xs">/Month</span>
       </h1>
     ) : content.included ? (
       <svg
@@ -81,9 +81,10 @@ const Pricing = () => {
   return (
     <section>
       <div className="container p-6 overflow-x-auto max-w-screen-xl px-4 pb-8 mx-auto lg:pb-16 text-center">
-        <h1 className="mb-11 text-start max-w-3xl mb-4 text-5xl font-semibold">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl mb-11 text-start max-w-3xl font-semibold">
           Packages for your business
         </h1>
+
         <table className="w-full">
           <caption className="sr-only">Pricing plan comparison</caption>
           <thead>
@@ -97,7 +98,11 @@ const Pricing = () => {
           <tbody className="space-y-6 text-center divide-y dark:divide-gray-300">
             <PriceRow plans={price[0].plans} />
             {features.map((feature, index) => (
-              <FeatureRow key={index} feature={feature.name} plans={feature.plans} />
+              <FeatureRow
+                key={index}
+                feature={feature.name}
+                plans={feature.plans}
+              />
             ))}
           </tbody>
         </table>

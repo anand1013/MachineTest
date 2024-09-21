@@ -34,18 +34,19 @@ const PartnersCard = ({ name, img, url }) => (
 const Partners = () => {
   return (
     <div>
-      <section className="bg-white">
-        <div className="max-w-screen-xl px-4 pb-8 mx-auto lg:pb-16 text-center">
-          <span className="text-base text-lg font-semibold leading-tight text-gray-900 mb-40">
-            Trusted by over 50 thousand restaurants in 10+ countries
-          </span>
-          <div className="mt-8 grid grid-cols-2 gap-8 text-gray-500 sm:gap-12 sm:grid-cols-3 lg:grid-cols-6">
-            {partnersData.map((sponsor) => (
-              <PartnersCard key={sponsor.name} {...sponsor} />
-            ))}
-          </div>
-        </div>
-      </section>
+    <section className="bg-white">
+  <div className="max-w-screen-xl px-4 pb-8 mx-auto lg:pb-16 text-center">
+    <span className="text-base text-lg font-semibold leading-tight text-gray-900 mb-40">
+      Trusted by over 50 thousand restaurants in 10+ countries
+    </span>
+    <div className="mt-8 flex space-x-8 overflow-x-auto sm:grid sm:grid-cols-3 lg:grid-cols-6 sm:gap-12 text-gray-500">
+      {partnersData.map((sponsor) => (
+        <PartnersCard key={sponsor.name} {...sponsor} />
+      ))}
+    </div>
+  </div>
+</section>
+
     </div>
   );
 };
