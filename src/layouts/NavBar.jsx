@@ -18,12 +18,12 @@ const Logo = ({ logoSrc, brandName }) => (
 const MenuItems = ({ items }) => (
   <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
     {items.map((item, index) => (
-      <li key={index}>
+      <li key={index} className="h-12">
         <a
           href={item.href}
           className={`${
             item.current ? "bg-black text-white" : "bg-white text-black"
-          } font-medium rounded-full text-base px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 
+          } font-medium rounded-full text-base px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 
           hover:bg-black hover:text-white`}
           aria-current={item.current ? "page" : undefined}
         >
