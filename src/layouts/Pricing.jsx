@@ -31,7 +31,7 @@ const PlanCell = ({ content, isPrice }) => (
         <span className="text-sm text-xs">/Month</span>
       </h1>
     ) : content.included ? (
-      <div class="flex justify-center items-center">
+      <div className="flex justify-center items-center">
         <img
           alt="True"
           src="https://firebasestorage.googleapis.com/v0/b/coco-e485d.appspot.com/o/check-circle-alt%20(1).png?alt=media&token=f590eb38-0b82-4d2b-8d28-0ff5256c43fe"
