@@ -3,8 +3,8 @@ import NavBar from "../layouts/NavBar";
 import Title from "../layouts/Title";
 import Partners from "../layouts/Partners";
 import Feature from "../layouts/Feature";
+import {LOGO_SRC} from "../assets.js"
 
-import logo from "../assets/logo.png";
 import Pricing from "../layouts/Pricing";
 import AdvantageTestimonials from "../layouts/AdvantageTestimonials";
 
@@ -25,7 +25,7 @@ const Home = () => {
     <div>
       <header>
         <NavBar
-          logoSrc={logo}
+          logoSrc={LOGO_SRC}
           brandName="Coca"
           menuItems={menuItems}
           onSignIn={handleSignIn}

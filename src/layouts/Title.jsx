@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import banner from "../assets/banner.png";
+import {BANNER_IMAGE} from "../assets.js"
+
 import SliderButton from "../components/molecules/SliderButton";
-import arrow from "../assets/arrow.png";
-import rating from "../assets/rating.png";
-import partner from "../assets/partner.png";
+import {ARROW_ICON} from "../assets.js"
+import {RATING_ICON} from "../assets.js"
+import {PARTNER_ICON} from "../assets.js"
 
 import { Testimonial } from "../components/molecules/Testimonial";
 import RatingScore from "../components/molecules/RatingScore";
@@ -48,10 +49,10 @@ const Title = () => {
               <SliderButton
                 label="Get Started for Free"
                 className="w-3/4 sm:w-1/2 mt-6 text-white bg-orange-500"
-                icon={arrow}
+                icon={ARROW_ICON}
               />
             </div>
-            <img className="mb-6 w-full sm:w-auto" src={banner} alt="Banner" />
+            <img className="mb-6 w-full sm:w-auto" src={BANNER_IMAGE} alt="Banner" />
         
         </section>
 
@@ -101,7 +102,7 @@ const Title = () => {
                   <SliderButton
                     label="Rating Review"
                     className="text-slate-950 bg-white"
-                    icon={rating}
+                    icon={RATING_ICON}
                   />
                   <figure className="max-w-screen-md mx-auto">
                     <blockquote className="mb-7 mt-6">
@@ -125,7 +126,7 @@ const Title = () => {
                   <SliderButton
                     label="Rating Review"
                     className="text-white bg-slate-900"
-                    icon={partner}
+                    icon={PARTNER_ICON}
                   />
                   <figure className="max-w-screen-md mx-auto">
                     <blockquote className="mb-7 mt-6">
@@ -151,7 +152,7 @@ const Title = () => {
             text="Deliver a better customer experience and increase their operational efficiency."
             author="Jane Doe"
             position="CEO at Company"
-            image={rating}
+            image={PARTNER_ICON}
             fontSize="text-sm sm:text-lg"
             color="text-red-500"
             background="#FFF5EE"

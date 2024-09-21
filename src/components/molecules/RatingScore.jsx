@@ -1,12 +1,12 @@
 import React from 'react'
-import star from "../../assets/star.png"
+import {STAR_IMAGE_URL} from "../../assets.js"
 
 const RatingScore = ({ rating }) => {
   return (
     <figcaption className="flex r mt-6 space-x-3 text-left">
     <img
       className="w-8 h-8 rounded-full"
-      src={star}
+      src={STAR_IMAGE_URL}
       alt="rating star"
     />
     <div className="pr-3 font-bold text-6xl text-gray-900">{rating}</div>

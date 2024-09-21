@@ -1,19 +1,6 @@
-import React from "react";
-import kfc from "../assets/kfc-logo.png";
-import pizza from "../assets/pizza-hut-logo.png";
-import starbucks from "../assets/starbucks-logo.png";
-import burger from "../assets/burger-king-logo.png";
-import jcorun from "../assets/jco-run-logo.png";
-import mcdonalds from "../assets/mcdonalds-logo.png";
-
-const partnersData = [
-  { name: "KFC", img: kfc, url: "https://www.kfc.com/" },
-  { name: "Pizza Hut", img: pizza, url: "https://www.pizzahut.co.in/" },
-  { name: "Starbucks", img: starbucks, url: "https://www.starbucks.com/" },
-  { name: "Burger King", img: burger, url: "https://www.bk.com/" },
-  { name: "Jco Run", img: jcorun, url: "https://jco.run/" },
-  { name: "McDonald's", img: mcdonalds, url: "https://www.mcdonalds.com/" },
-];
+import React, { useEffect, useState } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
+import cong from "../configuration";
 
 const PartnersCard = ({ name, img, url }) => (
   <a
@@ -32,21 +19,37 @@ const PartnersCard = ({ name, img, url }) => (
 );
 
 const Partners = () => {
+  const [data, setData] = useState([]);
+  const database = getDatabase(cong);
+  const collectionRef = ref(database, "partners");
+
+  useEffect(() => {
+    const fetchData = () => {
+      onValue(collectionRef, (snapshot) => {
+        const dataItem = snapshot.val();
+        if (dataItem) {
+          const displayItem = Object.values(dataItem);
+          setData(displayItem);
+        }
+      });
+    };
+    fetchData();
+  });
+
   return (
     <div>
-    <section className="bg-white">
-  <div className="max-w-screen-xl px-4 pb-8 mx-auto lg:pb-16 text-center  mt-20">
-    <span className="text-base text-lg font-semibold leading-tight text-gray-900 mb-40">
-      Trusted by over 50 thousand restaurants in 10+ countries
-    </span>
-    <div className="mt-8 flex space-x-8 overflow-x-auto sm:grid sm:grid-cols-3 lg:grid-cols-6 sm:gap-12 text-gray-500">
-      {partnersData.map((sponsor) => (
-        <PartnersCard key={sponsor.name} {...sponsor} />
-      ))}
-    </div>
-  </div>
-</section>
-
+      <section className="bg-white">
+        <div className="max-w-screen-xl px-4 pb-8 mx-auto lg:pb-16 text-center">
+          <span className="text-base text-lg font-semibold leading-tight text-gray-900 mb-40">
+            Trusted by over 50 thousand restaurants in 10+ countries
+          </span>
+          <div className="mt-8 flex space-x-8 overflow-x-auto sm:grid sm:grid-cols-3 lg:grid-cols-6 sm:gap-12 text-gray-500">
+            {data.map((sponsor) => (
+              <PartnersCard key={sponsor.name} {...sponsor} />
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
