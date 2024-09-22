@@ -33,6 +33,6 @@
 #### - Build the project for production - _npm run build_
 #### - Run Unit tests - _npm test_
 
-## Demo :
+## Demo
 
 #### - https://main--gentle-sherbet-0407d3.netlify.app/
