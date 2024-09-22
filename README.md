@@ -1,8 +1,8 @@
 ## Features Implemented:
 
-# Design: Built using Tailwind CSS.
+#### Design: Built using Tailwind CSS.
 
-# Mobile Responsiveness: Fully responsive layout for mobile devices.
+#### Mobile Responsiveness: Fully responsive layout for mobile devices.
 
 # Basic Google Sign-up: Implemented Google authentication for user sign-up.
 
