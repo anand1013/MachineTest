@@ -21,7 +21,7 @@
 
 ## Installation
 
-#### - Clone the repository : _ git clone https://github.com/anand1013/MachineTest.git _
+#### - Clone the repository : _git clone https://github.com/anand1013/MachineTest.git_
 #### - Navigate to the project directory :  _ cd MachineTest _
 #### - Install dependencies : _ npm install _
 
