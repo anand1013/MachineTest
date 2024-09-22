@@ -7,7 +7,7 @@
 #### - React 18.3 - For building interactive and reusable UI components.
 #### - Tailwind CSS - For utility-first, responsive styling.
 #### - Firebase - For real-time data management and authentication services.
-#### - Unit Tests: Implemented to ensure code quality and functionality, validating that each component behaves as expected and preventing regressions.
+#### - Unit Tests - Implemented to ensure code quality and functionality, validating that each component behaves as expected and preventing regressions.
 
 ## Features Implemented:
 
