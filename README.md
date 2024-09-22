@@ -1,14 +1,18 @@
+## Project Name
+
+#### A basic-level website implementation utilizing modern technologies for efficient development and real-time data handling.
+
+## Tech Stack Used
+
+#### - React 18.3: For building interactive and reusable UI components.
+#### - Tailwind CSS: For utility-first, responsive styling.
+#### -Firebase: For real-time data management and authentication services.
+
 ## Features Implemented:
 
-#### - Design: Built using Tailwind CSS.
-
-#### - Mobile Responsiveness: Fully responsive layout for mobile devices.
-
-#### - Basic Google Sign-up: Implemented Google authentication for user sign-up.
-
-#### - Basic Firebase Integration: Real-time database implemented using Firebase.
-
-#### - Reusable Components
+#### - Responsive Design: Styled with Tailwind CSS, ensuring compatibility across various devices.
+#### - Basic Google Sign-Up Implementation: Allows users to sign in securely using their Google accounts.
+#### - Real-time Data Handling: Powered by Firebase, ensuring up-to-date information is displayed without page reloads.
 
 ## To-Do:
 
