@@ -21,14 +21,14 @@
 
 ## Installation
 
-#### - Clone the repository : git clone https://github.com/anand1013/MachineTest.git
-#### - Navigate to the project directory :  cd MachineTest
-#### - Install dependencies : npm install
+#### - Clone the repository : _ git clone https://github.com/anand1013/MachineTest.git _
+#### - Navigate to the project directory :  _ cd MachineTest _
+#### - Install dependencies : _ npm install _
 
 ## Usage
 
-#### - Start the development server : npm run start
-#### - Build the project for production : npm run build
+#### - Start the development server : _ npm run start _
+#### - Build the project for production : _ npm run build _
 
 ## Demo :
 
