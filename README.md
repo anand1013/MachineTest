@@ -17,14 +17,18 @@
 ## To-Do:
 
 #### - Footer Section : Pending implementation.
-
 #### - Price Data : Currently hardcoded in Store Folder; needs to be imported into Firebase DB.
 
-## Commands to Run :
+## Installation
 
-#### - npm install
+#### - Clone the repository : git clone https://github.com/anand1013/MachineTest.git
+#### - Navigate to the project directory :  cd MachineTest
+#### - Install dependencies : npm install
 
-#### - npm run start
+## Usage
+
+#### - Start the development server : npm run start
+#### - Build the project for production : npm run build
 
 ## Demo :
 
