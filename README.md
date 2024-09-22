@@ -24,4 +24,4 @@
 
 ## Demo :
 
-#### - https://deploy-preview-10--gentle-sherbet-0407d3.netlify.app/
+#### - https://main--gentle-sherbet-0407d3.netlify.app/
