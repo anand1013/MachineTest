@@ -21,8 +21,13 @@ const PlanHeader = ({ plan }) => (
 // Reusable Plan Cell Component for both price and features
 const PlanCell = ({ content, isPrice }) => (
   <td
-    className="border-r-4 border-white"
-    style={{ backgroundColor: content.background }}
+    className="border-r-10 border-solid border-white"
+    style={{
+      backgroundColor: content.background ,
+      borderRight: "10px solid white",
+      width: "200px",
+    }}
+  
   >
     {isPrice ? (
       <h1 className="font-semibold">
