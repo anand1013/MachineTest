@@ -14,7 +14,7 @@
 
 #### - Footer Section: Pending implementation.
 
-#### - Price Data: Currently hardcoded; needs to be imported into Firebase DB.
+#### - Price Data: Currently hardcoded in Store Folder; needs to be imported into Firebase DB.
 
 ## Commands to Run:
 
