@@ -6,7 +6,7 @@
 
 #### - React 18.3 : For building interactive and reusable UI components.
 #### - Tailwind CSS : For utility-first, responsive styling.
-#### -Firebase : For real-time data management and authentication services.
+#### - Firebase : For real-time data management and authentication services.
 
 ## Features Implemented:
 
