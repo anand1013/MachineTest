@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
-import { LOGO_SRC, HAMBURGER_ICON, CLOSE_ICON } from "../assets"; // 
+import { LOGO_SRC, HAMBURGER_ICON, CLOSE_ICON } from "../assets"; //
 
+const baseURL = process.env.REACT_APP_GOOGLE_API_BASE_URL;
 // Logo Component
 const Logo = ({ logoSrc, brandName }) => (
   <a href="/" className="flex items-center">
@@ -86,28 +87,24 @@ const NavBar = ({ logoSrc, brandName, menuItems, onSignIn }) => {
   useEffect(() => {
     if (user) {
       axios
-        .get(
-          `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
-          {
-            headers: {
-              Authorization: `Bearer ${user.access_token}`,
-              Accept: "application/json",
-            },
-          }
-        )
+        .get(`${baseURL}/userinfo?access_token=${user.access_token}`, {
+          headers: {
+            Authorization: `Bearer ${user.access_token}`,
+            Accept: "application/json",
+          },
+        })
         .then((response) => setProfile(response.data))
         .catch((error) => console.error(error));
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [user]);
 
   const CustomAlert = ({ onClose }) => (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-50">
       <div className="bg-white p-8 rounded-lg shadow-xl text-center max-w-md mx-auto space-y-6">
         <h1 className="text-2xl font-bold text-gray-800">
-          Hi, <span className="text-orange-500">{profile?.name}</span> 😁<br />
-          Welcome to{" "}
-          <span className="font-ebold text-orange-600">Coca</span>
+          Hi, <span className="text-orange-500">{profile?.name}</span> 😁
+          <br />
+          Welcome to <span className="font-ebold text-orange-600">Coca</span>
         </h1>
         <p className="mt-4 text-gray-700 text-lg">
           All the features you need in one app for{" "}
@@ -145,8 +142,8 @@ const NavBar = ({ logoSrc, brandName, menuItems, onSignIn }) => {
 
           <div className="flex items-center lg:order-2">
             <NavButton
-              label={profile ? "Sign Out" : "Sign In"}
-              onClick={profile ? handleLogOut : handleGoogleLogin}
+              label={user ? "Sign Out" : "Sign In"}
+              onClick={user ? handleLogOut : handleGoogleLogin}
             />
             <HamburgerToggle isOpen={isMenuOpen} onToggle={toggleMenu} />
           </div>
