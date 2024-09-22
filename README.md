@@ -22,6 +22,6 @@
 
 #### - npm run start
 
-## Hosted :
+## Demo :
 
 #### - https://deploy-preview-10--gentle-sherbet-0407d3.netlify.app/
