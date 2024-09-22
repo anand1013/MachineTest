@@ -1,8 +1,6 @@
-// Testimonial.test.js
-
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect"; // For better assertions
+import "@testing-library/jest-dom/extend-expect";
 import { Testimonial } from "./Testimonial";
 
 describe("Testimonial Component", () => {
@@ -41,7 +39,7 @@ describe("Testimonial Component", () => {
   it("applies default font size, color, and background", () => {
     render(<Testimonial {...props} />);
     const blockquote = screen.getByText(/This is a testimonial text./i);
-    expect(blockquote).toHaveClass("text-base"); // Default font size
+    expect(blockquote).toHaveClass("text-base");
   });
   //     render(
   //       <Testimonial

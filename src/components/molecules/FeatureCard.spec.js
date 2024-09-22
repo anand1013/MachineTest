@@ -15,7 +15,6 @@ describe("FeatureCard component", () => {
     const titleElement = screen.getByText(title);
     const descriptionElement = screen.getByText(description);
 
-    // Assertions
     expect(imgElement).toHaveAttribute("src", icon);
     expect(titleElement).toBeInTheDocument();
     expect(descriptionElement).toBeInTheDocument();
