@@ -4,9 +4,9 @@
 
 # Mobile Responsiveness: Fully responsive layout for mobile devices.
 
-# Google Sign-up: Implemented Google authentication for user sign-up.
+# Basic Google Sign-up: Implemented Google authentication for user sign-up.
 
-# Firebase Integration: Real-time database implemented using Firebase.
+# Basic Firebase Integration: Real-time database implemented using Firebase.
 
 # Reusable Components
 
