@@ -11,7 +11,6 @@
 ## Features Implemented
 
 #### - Responsive Design - Styled with Tailwind CSS, ensuring compatibility across various devices.
-#### - Basic Google Sign-Up Implementation - Allows users to sign in securely using their Google accounts.
 #### - Real-time Data Handling - Powered by Firebase, ensuring up-to-date information is displayed without page reloads.
 #### - Google Sign-Up -  Easily integrated Google Sign-Up flow, allowing users to log in using their Google credentials.
 #### - Unit Tests - Implemented to ensure code quality and functionality, validating that each component behaves as expected and preventing regressions.
