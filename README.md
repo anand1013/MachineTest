@@ -1,6 +1,6 @@
 ## Features Implemented:
 
-#### Design: Built using Tailwind CSS.
+#### - Design: Built using Tailwind CSS.
 
 #### Mobile Responsiveness: Fully responsive layout for mobile devices.
 
