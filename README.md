@@ -9,18 +9,18 @@
 #### - Firebase - For real-time data management and authentication services.
 #### - Unit Tests - Implemented to ensure code quality and functionality, validating that each component behaves as expected and preventing regressions.
 
-## Features Implemented:
+## Features Implemented
 
 #### - Responsive Design - Styled with Tailwind CSS, ensuring compatibility across various devices.
 #### - Basic Google Sign-Up Implementation - Allows users to sign in securely using their Google accounts.
 #### - Real-time Data Handling - Powered by Firebase, ensuring up-to-date information is displayed without page reloads.
 #### - Google Sign-Up -  Easily integrated Google Sign-Up flow, allowing users to log in using their Google credentials.
 
-## To-Do:
+## To-Do
 
 #### - Footer Section - Pending implementation.
 #### - Price Data - Currently hardcoded in Store Folder; needs to be imported into Firebase DB.
-
+#### - Unit test - For Layout components
 ## Installation
 
 #### - Clone the repository - _git clone https://github.com/anand1013/MachineTest.git_
