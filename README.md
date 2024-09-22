@@ -7,6 +7,7 @@
 #### - React 18.3 - For building interactive and reusable UI components.
 #### - Tailwind CSS - For utility-first, responsive styling.
 #### - Firebase - For real-time data management and authentication services.
+#### - Unit tests
 
 ## Features Implemented:
 
@@ -30,6 +31,7 @@
 
 #### - Start the development server - _npm run start_
 #### - Build the project for production - _npm run build_
+#### - Run Unit tests - _npm test_
 
 ## Demo :
 
